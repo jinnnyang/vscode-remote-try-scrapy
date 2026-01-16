@@ -7,7 +7,7 @@
 import scrapy
 
 
-class ClawerItem(scrapy.Item):
+class CrawlerItem(scrapy.Item):
     """
     简单爬虫数据模型
     适用于基础网页爬取

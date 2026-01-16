@@ -5,8 +5,7 @@
 """
 
 import scrapy
-
-from clawer.items import ClawerItem
+from crawler.items import CrawlerItem
 
 
 class AsyncSpider(scrapy.Spider):
@@ -28,7 +27,7 @@ class AsyncSpider(scrapy.Spider):
         """
         解析响应数据
         """
-        item = ClawerItem()
+        item = CrawlerItem()
         item["url"] = response.url
         item["title"] = response.css("h1::text").get()
         item["content"] = response.css("p::text").getall()

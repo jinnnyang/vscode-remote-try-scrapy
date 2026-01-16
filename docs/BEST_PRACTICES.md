@@ -46,7 +46,7 @@ def parse(self, response):
 
 ```python
 ITEM_PIPELINES = {
-    "clawer.pipelines.ValidationPipeline": 200,
+    "crawler.pipelines.ValidationPipeline": 200,
 }
 ```
 

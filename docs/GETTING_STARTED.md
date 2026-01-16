@@ -22,7 +22,7 @@ python run.py example
 
 ### 使用 VS Code 调试
 
-1. 打开 `clawer/spiders/example.py`
+1. 打开 `crawler/spiders/example.py`
 2. 设置断点
 3. 按 `F5` 启动调试
 
@@ -36,11 +36,11 @@ scrapy genspider myspider example.com
 
 ### 手动创建
 
-在 `clawer/spiders/` 目录下创建新的 Python 文件：
+在 `crawler/spiders/` 目录下创建新的 Python 文件：
 
 ```python
 import scrapy
-from clawer.items import ClawerItem
+from crawler.items import CrawlerItem
 
 
 class MySpider(scrapy.Spider):
@@ -49,7 +49,7 @@ class MySpider(scrapy.Spider):
     start_urls = ["https://example.com"]
     
     def parse(self, response):
-        item = ClawerItem()
+        item = CrawlerItem()
         item['url'] = response.url
         item['title'] = response.css('h1::text').get()
         item['content'] = response.css('p::text').getall()

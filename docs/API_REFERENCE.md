@@ -2,7 +2,7 @@
 
 ## Item 类
 
-### ClawerItem
+### CrawlerItem
 
 基础爬虫数据模型。
 
@@ -92,7 +92,7 @@ PROXY_LIST = [
 
 | 配置项 | 默认值 | 说明 |
 |--------|--------|------|
-| BOT_NAME | "clawer" | 爬虫名称 |
+| BOT_NAME | "crawler" | 爬虫名称 |
 | USER_AGENT | - | 用户代理 |
 | ROBOTSTXT_OBEY | False | 是否遵守 robots.txt |
 
@@ -107,9 +107,9 @@ PROXY_LIST = [
 
 ```python
 ITEM_PIPELINES = {
-    "clawer.pipelines.DataCleaningPipeline": 100,
-    "clawer.pipelines.ValidationPipeline": 200,
-    "clawer.pipelines.FileSavePipeline": 400,
+    "crawler.pipelines.DataCleaningPipeline": 100,
+    "crawler.pipelines.ValidationPipeline": 200,
+    "crawler.pipelines.FileSavePipeline": 400,
 }
 ```
 
@@ -117,7 +117,7 @@ ITEM_PIPELINES = {
 
 ```python
 DOWNLOADER_MIDDLEWARES = {
-    "clawer.middlewares.RandomUserAgentMiddleware": 400,
-    "clawer.middlewares.ProxyMiddleware": 410,
+    "crawler.middlewares.RandomUserAgentMiddleware": 400,
+    "crawler.middlewares.ProxyMiddleware": 410,
 }
 ```

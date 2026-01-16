@@ -10,7 +10,7 @@ from itemadapter import ItemAdapter
 from scrapy import signals
 
 
-class ClawerSpiderMiddleware:
+class CrawlerSpiderMiddleware:
     """
     爬虫中间件
     处理爬虫输入和输出
@@ -43,7 +43,7 @@ class ClawerSpiderMiddleware:
         self.crawler.spider.logger.info("Spider opened: %s" % self.crawler.spider.name)
 
 
-class ClawerDownloaderMiddleware:
+class CrawlerDownloaderMiddleware:
     """
     下载中间件
     处理请求和响应

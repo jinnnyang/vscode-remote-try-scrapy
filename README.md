@@ -49,7 +49,7 @@ python run.py example
 
 ```
 .
-├── clawer/                    # 爬虫核心目录
+├── crawler/                    # 爬虫核心目录
 │   ├── __init__.py
 │   ├── settings.py           # Scrapy 配置文件
 │   ├── items.py             # 数据模型定义
@@ -101,14 +101,14 @@ scrapy crawl example -o output/example.json
 scrapy genspider myspider example.com
 
 # 或手动创建文件
-# 在 clawer/spiders/ 目录下创建新的爬虫文件
+# 在 crawler/spiders/ 目录下创建新的爬虫文件
 ```
 
 ### 调试爬虫
 
 在 VS Code 中：
 
-1. 打开 `clawer/spiders/example.py`
+1. 打开 `crawler/spiders/example.py`
 2. 在代码行号左侧点击设置断点
 3. 按 `F5` 或选择 "Scrapy" 调试配置
 4. 等待断点命中，开始调试
@@ -125,7 +125,7 @@ scrapy shell "https://example.com"
 
 ## 配置说明
 
-### 基础配置 ([`clawer/settings.py`](clawer/settings.py))
+### 基础配置 ([`crawler/settings.py`](crawler/settings.py))
 
 主要配置项：
 
@@ -138,7 +138,7 @@ scrapy shell "https://example.com"
 - `ITEM_PIPELINES` - 启用的数据管道
 - `DOWNLOADER_MIDDLEWARES` - 启用的下载中间件
 
-### 中间件 ([`clawer/middlewares.py`](clawer/middlewares.py))
+### 中间件 ([`crawler/middlewares.py`](crawler/middlewares.py))
 
 内置中间件：
 
@@ -146,7 +146,7 @@ scrapy shell "https://example.com"
 - `ProxyMiddleware` - 代理支持
 - `RetryMiddleware` - 请求重试
 
-### 数据管道 ([`clawer/pipelines.py`](clawer/pipelines.py))
+### 数据管道 ([`crawler/pipelines.py`](crawler/pipelines.py))
 
 内置管道：
 
@@ -157,13 +157,13 @@ scrapy shell "https://example.com"
 
 ## 示例爬虫
 
-### 基础爬虫 ([`example.py`](clawer/spiders/example.py))
+### 基础爬虫 ([`example.py`](crawler/spiders/example.py))
 
 爬取 https://example.com 的基础示例：
 
 ```python
 import scrapy
-from clawer.items import ClawerItem
+from crawler.items import CrawlerItem
 
 
 class ExampleSpider(scrapy.Spider):
@@ -179,11 +179,11 @@ class ExampleSpider(scrapy.Spider):
         yield item
 ```
 
-### 异步爬虫 ([`async_spider.py`](clawer/spiders/async_spider.py))
+### 异步爬虫 ([`async_spider.py`](crawler/spiders/async_spider.py))
 
 使用 aiohttp 的异步爬虫示例。
 
-### Selenium 爬虫 ([`selenium_spider.py`](clawer/spiders/selenium_spider.py))
+### Selenium 爬虫 ([`selenium_spider.py`](crawler/spiders/selenium_spider.py))
 
 使用 Selenium 处理 JavaScript 渲染页面的示例。
 
@@ -191,15 +191,15 @@ class ExampleSpider(scrapy.Spider):
 
 ### Q: 如何修改爬虫的并发数？
 
-A: 在 [`clawer/settings.py`](clawer/settings.py) 中修改 `CONCURRENT_REQUESTS` 配置项。
+A: 在 [`crawler/settings.py`](crawler/settings.py) 中修改 `CONCURRENT_REQUESTS` 配置项。
 
 ### Q: 如何添加代理？
 
-A: 在 [`clawer/settings.py`](clawer/settings.py) 中启用 `ProxyMiddleware` 并配置代理列表。
+A: 在 [`crawler/settings.py`](crawler/settings.py) 中启用 `ProxyMiddleware` 并配置代理列表。
 
 ### Q: 数据保存到数据库？
 
-A: 在 [`clawer/pipelines.py`](clawer/pipelines.py) 中添加数据库管道，或在 `ITEM_PIPELINES` 中配置。
+A: 在 [`crawler/pipelines.py`](crawler/pipelines.py) 中添加数据库管道，或在 `ITEM_PIPELINES` 中配置。
 
 ### Q: 如何处理登录认证？
 

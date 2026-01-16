@@ -8,12 +8,11 @@ Selenium 爬虫示例
 # 而不是直接在爬虫核心代码中操作。本示例仅用于演示目的。
 
 import scrapy
+from crawler.items import CrawlerItem
 from scrapy.http import HtmlResponse
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
-
-from clawer.items import ClawerItem
 
 
 class SeleniumSpider(scrapy.Spider):
@@ -86,7 +85,7 @@ class SeleniumSpider(scrapy.Spider):
         )
 
         # 解析数据
-        item = ClawerItem()
+        item = CrawlerItem()
         item["url"] = response.url
         item["title"] = response.css("h1::text").get()
         item["content"] = response.css("p::text").getall()

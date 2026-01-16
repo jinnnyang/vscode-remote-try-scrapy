@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Scrapy settings for clawer project
+# Scrapy settings for crawler project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -15,10 +15,10 @@ from pathlib import Path
 # 基础配置
 # ============================================================
 
-BOT_NAME = "clawer"
+BOT_NAME = "crawler"
 
-SPIDER_MODULES = ["clawer.spiders"]
-NEWSPIDER_MODULE = "clawer.spiders"
+SPIDER_MODULES = ["crawler.spiders"]
+NEWSPIDER_MODULE = "crawler.spiders"
 
 ADDONS = {}
 
@@ -132,9 +132,9 @@ DOWNLOAD_TIMEOUT = 180
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-    "clawer.pipelines.DataCleaningPipeline": 100,
-    "clawer.pipelines.ValidationPipeline": 200,
-    "clawer.pipelines.FileSavePipeline": 400,
+    "crawler.pipelines.DataCleaningPipeline": 100,
+    "crawler.pipelines.ValidationPipeline": 200,
+    "crawler.pipelines.FileSavePipeline": 400,
 }
 
 # ============================================================
@@ -144,9 +144,9 @@ ITEM_PIPELINES = {
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 DOWNLOADER_MIDDLEWARES = {
-    "clawer.middlewares.RandomUserAgentMiddleware": 400,
-    "clawer.middlewares.ProxyMiddleware": 410,
-    "clawer.middlewares.ClawerDownloaderMiddleware": 543,
+    "crawler.middlewares.RandomUserAgentMiddleware": 400,
+    "crawler.middlewares.ProxyMiddleware": 410,
+    "crawler.middlewares.CrawlerDownloaderMiddleware": 543,
 }
 
 # ============================================================
@@ -156,7 +156,7 @@ DOWNLOADER_MIDDLEWARES = {
 # Enable or disable spider middlewares
 # See https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 SPIDER_MIDDLEWARES = {
-    "clawer.middlewares.ClawerSpiderMiddleware": 543,
+    "crawler.middlewares.CrawlerSpiderMiddleware": 543,
 }
 
 # ============================================================
